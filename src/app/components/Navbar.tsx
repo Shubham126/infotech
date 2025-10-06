@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import logo from "../../../public/logo.png"
 
 type Item = { name: string; href: string; Icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element };
 
@@ -58,7 +59,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link href="/" aria-label="Company Home" className="flex items-center gap-2">
               <Image
-                src="/logo.svg"
+                src={logo}
                 alt="Company logo"
                 width={36}
                 height={36}
