@@ -10,11 +10,11 @@ import underline from '../../../public/underline.png';
 export default function Hero() {
   return (
     <section className="relative overflow-hidden hero-bg">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-y-12 px-4 py-12 md:grid-cols-12 md:gap-x-8 md:px-6 md:py-20 lg:py-24">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-y-12 px-4 pt-12 md:grid-cols-12 md:gap-x-8 md:px-6 md:pt-20 lg:pt-24">
         
         {/* Left Section */}
         <div className="relative md:col-span-6 lg:col-span-6">
-          <div className="relative inline-block max-w-[640px]">
+          <div className="relative inline-block max-w-[640px] pb-12 md:pb-20 lg:pb-24">
             <div aria-hidden className="hero-grid absolute inset-0" />
 
             <h1 className="relative z-10 text-[64px] font-bold leading-tight tracking-[-0.02em] text-neutral-950">
