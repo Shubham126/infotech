@@ -35,19 +35,19 @@ export default function Hero() {
               <span className="block mt-1"> Make It Happen</span>
             </h1>
 
-            <p className="relative z-10 mt-5 max-w-md text-sm sm:text-base font-normal leading-relaxed sm:leading-[39px] text-neutral-900">
+            <p className="relative z-10 mt-5 max-w-md text-sm sm:text-base font-medium leading-relaxed sm:leading-[39px] text-neutral-900">
               If Your Resume Isn't Getting Responses, It's Time For An Upgrade. Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.
             </p>
 
             <div className="relative z-10 mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
-                href="#packages"
+                href="/resume-package"
                 className="rounded-full border border-rose-300 bg-white px-4 py-2 text-sm font-medium text-rose-600 shadow-sm hover:border-rose-400 hover:shadow text-center"
               >
                 RESUME PACKAGES
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="rounded-full bg-rose-600 px-5 py-2.5 text-sm font-medium text-white shadow-[0_6px_20px_rgba(244,63,94,0.35)] hover:bg-rose-700 text-center"
               >
                 CONTACT US

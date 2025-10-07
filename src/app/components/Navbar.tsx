@@ -53,15 +53,15 @@ export default function Navbar() {
           </div>
 
           {/* Desktop nav */}
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center gap-10 md:flex">
             {navItems.map(({ name, href }) => {
               const active = pathname === href;
               return (
                 <li key={name}>
                   <Link
                     href={href}
-                    className={`text-sm transition-colors ${
-                      active ? 'text-rose-600' : 'text-neutral-700 hover:text-neutral-900'
+                    className={`text-md font-medium transition-colors ${
+                      active ? 'text-rose-600' : 'text-[#282828] hover:text-[#281817]'
                     }`}
                   >
                     {name}
@@ -70,6 +70,7 @@ export default function Navbar() {
               );
             })}
           </ul>
+
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
