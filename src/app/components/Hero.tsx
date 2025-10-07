@@ -15,38 +15,40 @@ export default function Hero() {
         {/* Left Section */}
         <div className="relative md:col-span-6 lg:col-span-6">
           <div className="relative inline-block max-w-[640px] pb-12 md:pb-20 lg:pb-24">
-            <div aria-hidden className="hero-grid absolute inset-0" />
+            {/* Hide grid on small screens */}
+            <div aria-hidden className="hero-grid absolute inset-0 hidden sm:block" />
 
-            <h1 className="relative z-10 text-[64px] font-bold leading-tight tracking-[-0.02em] text-neutral-950">
+            <h1 className="relative z-10 text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight tracking-[-0.02em] text-neutral-950">
               <span className="block">Your Resume</span>
               <span className="relative mt-1 inline-block">
                 <span className="text-rose-600">Deserves A Yes</span> Let's
+                {/* Hide underline on mobile (< sm) */}
                 <Image
                   src={underline}
                   alt="underline accent"
                   width={363}
                   height={17}
-                  className="pointer-events-none absolute left-0 -bottom-2.5 w-[63%] max-w-[520px] select-none"
+                  className="pointer-events-none absolute left-0 -bottom-2.5 w-[63%] max-w-[520px] select-none hidden md:block"
                   priority
                 />
               </span>
               <span className="block mt-1"> Make It Happen</span>
             </h1>
 
-            <p className="relative z-10 mt-5 max-w-md text-base font-normal leading-[39px] text-neutral-900">
+            <p className="relative z-10 mt-5 max-w-md text-sm sm:text-base font-normal leading-relaxed sm:leading-[39px] text-neutral-900">
               If Your Resume Isn't Getting Responses, It's Time For An Upgrade. Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.
             </p>
 
-            <div className="relative z-10 mt-7 flex items-center gap-4">
+            <div className="relative z-10 mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 href="#packages"
-                className="rounded-full border border-rose-300 bg-white px-4 py-2 text-sm font-medium text-rose-600 shadow-sm hover:border-rose-400 hover:shadow"
+                className="rounded-full border border-rose-300 bg-white px-4 py-2 text-sm font-medium text-rose-600 shadow-sm hover:border-rose-400 hover:shadow text-center"
               >
                 RESUME PACKAGES
               </Link>
               <Link
                 href="#contact"
-                className="rounded-full bg-rose-600 px-5 py-2.5 text-sm font-medium text-white shadow-[0_6px_20px_rgba(244,63,94,0.35)] hover:bg-rose-700"
+                className="rounded-full bg-rose-600 px-5 py-2.5 text-sm font-medium text-white shadow-[0_6px_20px_rgba(244,63,94,0.35)] hover:bg-rose-700 text-center"
               >
                 CONTACT US
               </Link>
@@ -56,9 +58,9 @@ export default function Hero() {
 
         {/* Right Section */}
         <div className="relative md:col-span-6 lg:col-span-6">
-          {/* Ring perfectly centered behind girl */}
+          {/* Ring perfectly centered behind girl - larger on mobile */}
           <div
-            className="hero-rings absolute left-1/2 top-1/2 z-0 -translate-x-[41%] -translate-y-[52%]"
+            className="hero-rings absolute left-1/2 top-1/2 z-0 -translate-x-[45%] -translate-y-[50%] sm:-translate-x-[42%] sm:-translate-y-[50%] md:-translate-x-[41%] md:-translate-y-[52%]"
             aria-hidden="true"
           />
 
@@ -72,8 +74,8 @@ export default function Hero() {
               priority
             />
 
-            {/* Rating badge — shifted further left */}
-            <div className="absolute left-0 top-[54%] w-[58%] max-w-[280px] translate-x-10 translate-y-5 sm:-translate-x-16">
+            {/* Rating badge */}
+            <div className="absolute left-0 top-[54%] w-[58%] max-w-[280px] -translate-x-4 translate-y-5 sm:-translate-x-16">
               <Image
                 src={rating}
                 alt="4.9 Instructor Rating"
@@ -84,7 +86,7 @@ export default function Hero() {
             </div>
 
             {/* Created badge */}
-            <div className="absolute bottom-4 right-4 w-[52%] max-w-[300px] translate-x-10 -translate-y-10 sm:bottom-6 sm:right-6">
+            <div className="absolute bottom-4 right-4 w-[52%] max-w-[300px] translate-x-4 -translate-y-10 sm:translate-x-10 sm:bottom-6 sm:right-6">
               <Image
                 src={created}
                 alt="260+ Online Resume Created"

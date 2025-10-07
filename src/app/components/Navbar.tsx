@@ -4,47 +4,27 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import logo from "../../../public/logo.png"
+import logo from "../../../public/logo.png";
 
-type Item = { name: string; href: string; Icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element };
+// Import navigation icons
+import homeIcon from "../../../public/homeIcon.png";
+import aboutIcon from "../../../public/aboutIcon.png";
+import servicesIcon from "../../../public/servicesIcon.png";
+import pricingIcon from "../../../public/pricingIcon.png";
+import faqIcon from "../../../public/faqIcon.png";
 
-const HomeIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M3 10.5L12 3l9 7.5M5 10v10h14V10" />
-  </svg>
-);
-
-const InfoIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <circle cx="12" cy="12" r="9" strokeWidth="2" />
-    <path strokeWidth="2" strokeLinecap="round" d="M12 8.5h.01M11 12h2v6h-2z" />
-  </svg>
-);
-
-const ServicesIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-  </svg>
-);
-
-const PricingIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 1v22M7 5h6a4 4 0 010 8H9a4 4 0 000 8h7" />
-  </svg>
-);
-
-const FaqIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
-    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M8 9a4 4 0 118 0c0 3-4 3-4 6M12 17h.01" />
-  </svg>
-);
+type Item = { 
+  name: string; 
+  href: string; 
+  icon: any; // StaticImageData
+};
 
 const navItems: Item[] = [
-  { name: 'Home', href: '/', Icon: HomeIcon },
-  { name: 'About Us', href: '/about', Icon: InfoIcon },
-  { name: 'Our Services', href: '/services', Icon: ServicesIcon },
-  { name: 'Pricing', href: '/pricing', Icon: PricingIcon },
-  { name: 'FAQ', href: '/faq', Icon: FaqIcon },
+  { name: 'Home', href: '/', icon: homeIcon },
+  { name: 'About Us', href: '/about', icon: aboutIcon },
+  { name: 'Our Services', href: '/services', icon: servicesIcon },
+  { name: 'Pricing', href: '/pricing', icon: pricingIcon },
+  { name: 'FAQ', href: '/faq', icon: faqIcon },
 ];
 
 export default function Navbar() {
@@ -137,8 +117,12 @@ export default function Navbar() {
         >
           <div className="mb-6 flex items-center justify-between">
             <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="Company logo" width={32} height={32} />
-              <span className="text-base font-semibold">COMPANY</span>
+              <Image src={logo} alt="Company logo" width={32} height={32} />
+              <div className="leading-tight">
+                <div className="text-base font-semibold">COMPANY</div>
+                <div className="text-base text-neutral-500">business tagline</div>
+              </div>
+
             </Link>
             <button
               aria-label="Close menu"
@@ -152,18 +136,26 @@ export default function Navbar() {
           </div>
 
           <ul className="space-y-4">
-            {navItems.map(({ name, href, Icon }) => {
+            {navItems.map(({ name, href, icon }) => {
               const active = pathname === href;
               return (
                 <li key={name}>
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 rounded-md px-2 py-2 text-[15px] ${
-                      active ? 'bg-white text-rose-600 shadow-sm' : 'text-neutral-800 hover:bg-white hover:shadow-sm'
+                    className={`flex items-center gap-3 rounded-md px-3 py-2.5 text-[15px] font-semibold ${
+                      active 
+                        ? 'bg-white text-rose-600 shadow-sm' 
+                        : 'text-neutral-900 hover:bg-white hover:shadow-sm'
                     }`}
                   >
-                    <Icon className="h-5 w-5" />
+                    <Image 
+                      src={icon} 
+                      alt={`${name} icon`}
+                      width={24}
+                      height={24}
+                      className="h-6 w-6"
+                    />
                     <span>{name}</span>
                   </Link>
                 </li>

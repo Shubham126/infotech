@@ -18,7 +18,8 @@
   }
 
   .hero-rings {
-    width: clamp(320px, 52vw, 700px);
+    /* Mobile: much larger ring for better visibility */
+    width: clamp(500px, 75vw, 700px);
     aspect-ratio: 1 / 1;
     border-radius: 9999px;
     pointer-events: none;
@@ -38,5 +39,26 @@
     background-repeat: no-repeat;
     background-position: center;
     filter: saturate(110%);
+  }
+
+  /* iPhone SE and extra small screens (≤375px) */
+  @media (max-width: 375px) {
+    .hero-rings {
+      width: clamp(480px, 80vw, 700px);
+    }
+  }
+
+  /* Very small screens (≤320px) */
+  @media (max-width: 320px) {
+    .hero-rings {
+      width: clamp(450px, 85vw, 700px);
+    }
+  }
+
+  /* Small to medium screens (376px - 640px) */
+  @media (min-width: 376px) and (max-width: 640px) {
+    .hero-rings {
+      width: clamp(520px, 70vw, 700px);
+    }
   }
 }

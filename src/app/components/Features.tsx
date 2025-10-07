@@ -15,7 +15,7 @@ type FeatureCardProps = {
 
 function FeatureCard({ title, description, imageSrc, imageAlt }: FeatureCardProps) {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md">
+    <div className="flex flex-col items-center rounded-2xl bg-white p-8 shadow-xl shadow-neutral-360/80 transition-all hover:shadow-xl hover:shadow-neutral-400/70">
       <div className="mb-6 h-40 w-40 flex items-center justify-center">
         <Image
           src={imageSrc}
